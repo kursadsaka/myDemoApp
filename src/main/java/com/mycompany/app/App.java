@@ -11,12 +11,18 @@ import java.util.Map;
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
 
-/**
- * Hello world!
- *
- */
-public class App 
+public class App
 {
+    public static boolean search(ArrayList<Integer> array, int e) {
+      System.out.println("inside search");
+      if (array == null) return false;
+
+      for (int elt : array) {
+        if (elt == e) return true;
+      }
+      return false;
+    }
+
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
 
@@ -65,16 +71,4 @@ public class App
         }
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
-
-    public static boolean search(ArrayList<Integer> array, int e) {
-        System.out.println("inside search");
-        if (array == null) return false;
-  
-        for (int elt : array) {
-          if (elt == e) return true;
-        }
-        return false;
-      }
-
-
 }
